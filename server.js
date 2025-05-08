@@ -55,7 +55,7 @@ const express = require('express');
 const fs = require('fs');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const path = require('path'); // <-- required for serving Angular files
+const path = require('path');
 
 const app = express();
 const PORT = 3000;
@@ -65,10 +65,10 @@ const FILE_PATH = './deposits.json';
 app.use(cors());
 app.use(bodyParser.json());
 
-// Serve Angular frontend (build output)
-app.use(express.static(path.join(__dirname, 'dist/my-app'))); // <-- update if folder name differs
+// ✅ Serve Angular frontend from correct path
+app.use(express.static(path.join(__dirname, 'dist/my-app')));
 
-// Ensure JSON file exists
+// ✅ Ensure JSON file exists
 if (!fs.existsSync(FILE_PATH)) {
   fs.writeFileSync(FILE_PATH, JSON.stringify([]));
 }
@@ -95,16 +95,12 @@ app.get('/deposits', (req, res) => {
   }
 });
 
-// Fallback to Angular's index.html for all other routes
+// ✅ Fallback to Angular's index.html for all other routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/my-app/index.html')); // <-- update if folder name differs
+  res.sendFile(path.join(__dirname, 'dist/my-app/index.html'));
 });
 
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
-
-
-
-
