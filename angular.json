@@ -49,7 +49,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/Banking_Dashboard_Application/",
+              
               "budgets": [
                 {
                   "type": "initial",
