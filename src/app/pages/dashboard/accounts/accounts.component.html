@@ -1,0 +1,105 @@
+<!-- accounts.component.html -->
+<div class="net-worth">
+  <h3>My Net worth</h3>
+  <p-chart type="pie" [data]="pieChartData" [options]="pieChartOptions"   [responsive]="true"></p-chart>
+</div>
+
+
+
+<div class="savings-card">
+  <h2>Savings</h2>
+  <div *ngFor="let data of savingsData" class="savings-bar">
+    <div class="label-row">
+      <span>{{ data.category }}</span>
+      <span>₹{{ data.amount }}</span>
+    </div>
+    <div class="progress-container">
+      <div 
+        class="progress-fill" 
+        [ngStyle]="{
+          'width': (data.amount / totalSavings * 100) + '%',
+          'background-color': data.color
+        }">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="grid">
+  <!-- Card 1 -->
+  <p class="h3">Credit Card</p>
+  <div class="overview-grid">
+  <div class="card card1">
+    <p class="p4">Credit Card</p>
+    <div class="box">
+      <!-- <span class="bank-name">Hepto Studio</span> -->
+      <p class="prem-acc">PREMIUM ACCOUNT</p>
+      <h2>₹56,089.50</h2>
+      <div class="card-info">
+        <p class="p2">Riya Sharma</p>
+        <p class="p3">12/28</p>
+        <p class="p1">4720 **** **** 6782</p>
+        <span class="visa-logo">VISA</span>
+        <div class="info">
+          <p class="a1">Card Type:</p>   <p class="i1">Credit card</p>
+          <p class="a2">Account Name:</p>   <p class="i2">Riya Sharma</p>
+          <p class="a3">Account Number:</p>   <p class="i3">5678899098877</p>
+          <p class="a4">Account Status:</p>   <p class="i4">Active</p>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid1">
+  <!-- Card 2 -->
+  <p class="h3">Debit Card</p>
+  <div class="card card2">
+    <p class="p4">Debit Card</p>
+    <div class="box">
+      <!-- <span class="bank-name">Hepto Studio</span> -->
+      <p class="prem-acc">SAVINGS</p>
+      <h2>₹89,562.75</h2>
+      <div class="card-info">
+        <p class="p2">Riya Sharma</p>
+        <p class="p3">01/26</p>
+        <p class="p1">5300 **** **** 1234</p>
+        <span class="visa-logo">VISA</span>
+        <div class="info">
+          <p class="a1">Card Type:</p>   <p class="i1">Debit card</p>
+          <p class="a2">Account Name:</p>   <p class="i2">Riya Sharma</p>
+          <p class="a3">Account Number:</p>   <p class="i3">4567765544433</p>
+          <p class="a4">Account Status:</p>   <p class="i4">Active</p>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  <!-- Card 3 -->
+  <!-- <div class="card card3">
+    <h3>Loan Account</h3>
+    <div class="box">
+      <span class="bank-name">Hepto Studio</span>
+      <p class="prem-acc">LOAN ACCOUNT</p>
+      <h2>₹2,30,000.00</h2>
+      <div class="card-info">
+        <p class="p2">Kavya Nair</p>
+        <p class="p3">03/30</p>
+        <p class="p1">5120 **** **** 9876</p>
+        <span class="visa-logo">VISA</span>
+      </div>
+    </div>
+  </div> -->
+
+

@@ -1,0 +1,82 @@
+<div class="transfer-section">
+  <div class="grid">
+    <!-- Transfer Form -->
+    <div class="money-transfer">
+      <h2>Money Transfer</h2>
+      <form (ngSubmit)="makeTransfer()">
+        <label>
+          To:
+          <select [(ngModel)]="transferForm.to" name="to" required >
+            <option value="" disabled selected>Select UPI ID</option>
+            <option *ngFor="let b of beneficiaries" [value]="b.upiId">{{ b.upiId }}</option>
+          </select>
+        </label>
+
+        <label>
+          Amount:
+          <input type="number" [(ngModel)]="transferForm.amount" name="amount" required />
+        </label>
+
+        <label>
+          Schedule Date:
+          <input type="date" [(ngModel)]="transferForm.scheduleDate" name="scheduleDate" />
+        </label>
+
+        <button type="submit" [disabled]="isSubmitDisabled()">Transfer</button>
+      </form>
+    </div>
+
+    <!-- Beneficiary Management -->
+    <div class="beneficiary">
+      <!-- <h2>Beneficiaries</h2>
+      <ul>
+        <li *ngFor="let b of beneficiaries">
+          {{ b.name }} - {{ b.account }} ({{ b.bank }})
+        </li>
+      </ul> -->
+      <!-- Beneficiary Details -->
+      <h2>Beneficiary Details</h2>
+
+      <div class="details" *ngIf="selectedBeneficiary; else noSelection">
+        <p><strong>Name:</strong> {{ selectedBeneficiary.name }}</p>
+        <p><strong>Account:</strong> {{ selectedBeneficiary.account }}</p>
+        <p><strong>UPI ID:</strong> {{ selectedBeneficiary.upiId }}</p>
+        <p><strong>Bank:</strong> {{ selectedBeneficiary.bank }}</p>
+      </div>
+      
+      
+      <ng-template #noSelection>
+        <!-- <h2>Beneficiary Details</h2> -->
+        <p>Please select a UPI ID to view beneficiary details.</p>
+      </ng-template>
+    </div>
+
+    <!-- Scheduled Transfers -->
+    <div class="schedule">
+      <h2>Scheduled Transfers</h2>
+      <ul>
+        <li *ngFor="let s of futureScheduledTransfers">
+          To: {{ s.to }}, Amount: ₹{{ s.amount }}, Date: {{ s.date }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Transfer History -->
+    <div class="transfer-history">
+      <h2>Transfer History</h2>
+      <label>Filter by Status: </label>
+      <select [(ngModel)]="filterStatus">
+        <option value="">All</option>
+        <option value="Success">Success</option>
+        <option value="Failed">Failed</option>
+      </select>
+
+      <ul>
+        <li *ngFor="let h of filteredHistory">
+          {{ h.date }} - {{ h.to }}: ₹{{ h.amount }}
+          <span [ngClass]="getStatusClass(h.status)">({{ h.status }})</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

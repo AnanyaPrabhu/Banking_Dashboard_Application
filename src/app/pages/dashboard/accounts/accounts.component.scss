@@ -1,0 +1,645 @@
+.net-worth {
+    background-color: #f1e5fc;
+    max-width: 23.3rem;
+    border-radius: 20px;
+    min-height: 255px;
+    bottom: 40px;
+    position: relative;
+    left: 0px;
+
+}
+
+
+h3 {
+    position: relative;
+    top: 15px !important;
+    left: 15px;
+}
+
+::ng-deep canvas {
+    position: relative;
+    bottom: -5px;
+}
+
+.savings-card {
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: #f1e5fc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 373px;
+    max-height: 256px;
+    position: relative;
+    top: -25px;
+    padding-top: 5px;
+}
+
+.savings-bar {
+    margin-bottom: 1.2rem;
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+.progress-container {
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+
+
+
+// .overview-grid {
+//     // display: flex;
+//     display: grid;
+//     gap: 1.5rem;
+//     flex-wrap: wrap;
+//     grid-template-columns: repeat(1, 1fr);
+//     position: relative;
+//     // bottom: 525px;
+//     // left: 400px;
+//     right:50px;
+//     // bottom:20px;
+//     top:30px;
+//     // background-color: #ece1f7;
+//     border-radius: 20px;
+//     // height: 20rem;
+//     // width:44rem;
+// }
+.grid {
+    background-color: #f1e5fc;
+    position: relative;
+    height: 16rem;
+    width: 44rem;
+    bottom: 541px !important;
+    border-radius: 20px;
+    left: 400px !important;
+
+}
+
+.grid1 {
+    // background-color: #ece1f7;
+    background-color: #f1e5fc;
+    position: relative;
+    height: 16rem;
+    width: 44rem;
+    top: 60px;
+    // bottom: 200px !important;
+    border-radius: 20px;
+    left: 1px !important;
+
+}
+
+.h3 {
+    position: relative;
+    // top: 7px !important;
+    left: 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.card {
+    width: 300px;
+    border-radius: 16px;
+    color: #fff;
+    padding: 20px;
+    // box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    height: 12rem;
+    margin-top: 18px;
+
+    .box {
+        position: relative;
+        bottom: 30px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin: 10px 0;
+        position: relative;
+        top: 10px;
+    }
+
+    .card-info {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+    }
+}
+
+.bank-name {
+    position: relative;
+    top: 2px;
+    left: 4px;
+}
+
+.prem-acc {
+    position: relative;
+    font-size: 10px;
+    left: 4px;
+    top: -2px;
+}
+
+.p1 {
+    position: relative;
+    // top: 10px;
+    bottom: 40px;
+    left: 7px;
+    font-size: 13px;
+}
+
+.visa-logo {
+    position: relative;
+    // top: 20px;
+    left: 210px;
+    bottom: 76px;
+    font-weight: bold;
+}
+
+.p3 {
+    position: relative;
+    left: 160px;
+    top: -25px;
+    font-size: 14px;
+}
+
+.p2 {
+    position: relative;
+    left: 4px;
+    top: 20px;
+    font-size: 14px;
+
+}
+
+.p4 {
+    position: relative;
+    bottom: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    left: 3px;
+
+}
+
+// Unique gradient styles
+.card1 {
+    background: linear-gradient(135deg, #8A2387, #E94057);
+    position: relative;
+    left: -40px;
+    right: 300px;
+    max-height: 30rem;
+    top: 30px;
+
+
+}
+
+.card2 {
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    position: relative;
+    left: 30px;
+    bottom: 5px;
+
+}
+
+.card3 {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+}
+
+.info {
+    position: absolute;
+    left: 305px;
+    color: rgb(5, 5, 117);
+    width: 300px;
+
+    height: 15rem;
+    // background-color: white;
+
+    bottom: 60px;
+}
+
+.a1 {
+    position: relative;
+    // bottom:10px;
+    top: 30px;
+    width: 10rem;
+    font-weight: bold;
+}
+
+.i1 {
+    position: relative;
+    left: 150px;
+    bottom: 5px;
+    color: black
+}
+
+.a2 {
+    position: relative;
+    // bottom:10px;
+    top: 5px;
+    width: 10rem;
+    font-weight: bold;
+}
+
+.i2 {
+    position: relative;
+    left: 150px;
+    bottom: 30px;
+    color: black;
+}
+
+.a3 {
+    position: relative;
+    // bottom:10px;
+    // top:5px;
+    bottom: 20px;
+    width: 10rem;
+    font-weight: bold;
+}
+
+.i3 {
+    position: relative;
+    left: 150px;
+    bottom: 55px;
+    color: black;
+}
+
+.a4 {
+    position: relative;
+    // bottom:10px;
+    bottom: 45px;
+    width: 10rem;
+    font-weight: bold;
+}
+
+.i4 {
+    position: relative;
+    left: 150px;
+    bottom: 80px;
+    color: rgb(77, 182, 77);
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+@media(max-width:1025px) {
+    .net-worth {
+        min-height: 14rem;
+        max-width: 20rem;
+    }
+
+    .savings-card {
+        min-height: 14rem;
+        max-width: 20rem;
+    }
+
+    .grid {
+        max-height: 14rem;
+        position: relative;
+        max-width: 27rem;
+        margin-top: 20px;
+        margin-left: -70px;
+
+    }
+
+    grid1 {
+        min-height: 14rem;
+        position: relative;
+        max-width: 25rem;
+        margin-top: 20px;
+        margin-left: -70px;
+    }
+
+    .card {
+        width: 15.2rem;
+        height: 10rem;
+        margin-left: -20px;
+    }
+
+    .card1 {
+        margin-left: -40px;
+    }
+
+    .p4 {
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 18px !important;
+        position: relative;
+        top: -1px !important;
+    }
+
+    .p2 {
+        position: relative;
+        top: 30px !important;
+    }
+
+    .p3 {
+        position: relative;
+        top: -20px;
+
+    }
+
+    .card-info {
+        position: relative;
+        bottom: 30px;
+    }
+
+    .visa-logo {
+        position: relative;
+        left: 180px;
+    }
+
+    .info {
+        margin-left: -70px;
+        font-size: 14px;
+
+    }
+
+    .i1 {
+        position: relative;
+        top: 20px;
+        left: -1px;
+    }
+
+    .a2,
+    .a3,
+    .a4 {
+        position: relative;
+        top: 20px;
+    }
+
+    .i2,
+    .i3,
+    .i4 {
+        position: relative;
+        top: 10px;
+        left: -1px;
+    }
+
+}
+
+@media(max-width:426px) {
+    ::ng-deep .p-breadcrumb {
+        position: relative;
+        top: -80px;
+    }
+
+    .net-worth {
+        position: relative;
+        top: -90px;
+        width: 14.2rem;
+        min-height: 14rem;
+        left: -15px;
+
+
+        ::ng-deep canvas {
+            width: 13rem;
+            position: relative;
+            left: -3px;
+            top: 20px;
+
+        }
+    }
+
+    .savings-card {
+        width: 12rem;
+        left: 215px;
+        top: -315px;
+        height: 70px !important;
+
+        h2 {
+            font-size: 14px !important;
+        }
+
+    }
+
+    .grid {
+        position: relative;
+        top: -320px;
+        left: 60px !important;
+        width: 25rem;
+    }
+
+    .label-row {
+        font-size: 10px;
+        padding: 0
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+
+}
+
+@media(max-width:376px) {
+    ::ng-deep .p-breadcrumb {
+        position: relative;
+        top: -80px;
+    }
+
+    .net-worth {
+        position: relative;
+        top: -90px;
+        width: 22rem;
+        min-height: 14rem;
+        left: 13px;
+
+
+        ::ng-deep canvas {
+            width: 16rem;
+            position: relative;
+            left: -3px;
+            top: 20px;
+
+        }
+    }
+
+    .savings-card {
+        width: 22rem;
+        left: 10px;
+        top: -60px;
+        height: 70px !important;
+
+        h2 {
+            font-size: 15px !important;
+        }
+
+    }
+
+    .grid {
+        position: relative;
+        top: -50px;
+        left: 65px !important;
+        width: 22rem;
+        
+
+        h2 {
+            font-size: 12px !important;
+            top: -10px;
+            left: -5px;
+        }
+    }
+    .info{
+        position: relative;
+        top:-260px;
+        width:20rem;
+        margin-left:-100px !important;
+    }
+
+    .label-row {
+        font-size: 12px;
+        padding: 0
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+
+
+
+    .card1 {
+        width: 12rem;
+        height: 9rem;
+    }
+
+    .card2 {
+        width: 12rem;
+        height: 9rem;
+    }
+
+    .p2 {
+        font-size: 10px;
+        position: relative;
+        top: 20px !important;
+        left: -5px;
+    }
+
+    .p1 {
+        font-size: 10px;
+        position: relative;
+        top: -20px;
+        left: -5px;
+    }
+
+
+    .p3 {
+        font-size: 10px;
+        position: relative;
+        left: 80px;
+        top: -15px;
+    }
+
+    .prem-acc {
+        position: relative;
+        left: -5px;
+    }
+
+    .p4 {
+        position: relative;
+        left: -5px;
+    }
+
+    .visa-logo {
+        position: relative;
+        left: 130px;
+        top: -50px;
+        font-size: 12px;
+
+    }
+
+    // .card-info {
+    //     width: 20rem;
+    //     margin-top: 20px;
+    // }
+
+    .grid1 {
+        margin-top: 30px;
+
+    }
+
+}
+@media(max-width:321px){
+    .net-worth {
+        position: relative;
+        top: -80px;
+        width: 20rem;
+        min-height: 14rem;
+        left:-17px;
+}
+.savings-card {
+    width: 20rem;
+    left:-17px;
+    top: -50px;
+    height: 70px !important;
+}
+.grid {
+    position: relative;
+    top: -40px;
+   left:50px !important;
+    width: 20rem;
+}
+.info{
+    margin-left: -120px !important;
+    font-size:12px;
+}
+::ng-deep .p-breadcrumb{
+    position: relative;
+    top:-70px;
+}
+}
+@media(min-width:2560px){
+    .net-worth {
+        
+        min-width: 60rem !important;
+        
+}
+.savings-card {
+    min-width: 60rem !important;
+   
+}
+.grid{
+    position: relative;
+    left:1000px !important;
+    min-width: 75rem !important;
+}
+.grid1{
+    min-width: 75rem !important; 
+}
+// .grid {
+//     position: relative;
+  
+//    left:950px !important;
+//     width: 20rem;
+// }
+// .info{
+//     margin-left: -120px !important;
+//     font-size:12px;
+// }
+.info{
+    margin-left: 90px;
+}
+}

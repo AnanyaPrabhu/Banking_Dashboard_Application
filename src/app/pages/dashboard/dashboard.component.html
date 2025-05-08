@@ -1,0 +1,129 @@
+<!-- <div
+  class="dashboard-container"
+  [class.collapsed]="isSidebarCollapsed && activeSection === 'deposits'"
+> -->
+<!-- Sidebar -->
+<!-- <div class="sidebar-wrapper" [class.collapsed]="isSidebarCollapsed">
+    <app-sidebar
+      [activeSection]="activeSection"
+      (collapseChanged)="onSidebarCollapseChanged($event)"
+      (sectionChanged)="setActiveSection($event)"
+    ></app-sidebar>
+  </div> -->
+
+<!-- Main Content Area -->
+<!-- <div class="main-content" [class.expanded]="isSidebarCollapsed && activeSection === 'deposits'">
+    <app-topbar></app-topbar>
+
+    <!-- Breadcrumb Navigation -->
+<!-- <p-breadcrumb [model]="breadcrumbItems">
+      <ng-template pTemplate="item" let-item let-i="index">
+        <a
+          [ngClass]="{ 'active-breadcrumb': item.section === activeSection }"
+          (click)="item.command && item.command()"
+        >
+          {{ item.label }}
+        </a>
+      </ng-template>
+    </p-breadcrumb>  -->
+
+<!-- Section Content -->
+<!-- <div *ngIf="activeSection === 'overview'">
+      <app-overview></app-overview>
+    </div>
+    <div *ngIf="activeSection === 'accounts'">
+      <app-accounts></app-accounts>
+    </div>
+    <div *ngIf="activeSection === 'transactions'">
+      <app-transactions></app-transactions>
+    </div>
+    <div *ngIf="activeSection === 'transfer'">
+      <app-report></app-report>
+    </div>
+    <div *ngIf="activeSection === 'deposits'">
+      <app-deposits></app-deposits>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+<div class="dashboard-container"
+  [class.collapsed]="isSidebarCollapsed && (activeSection === 'fd' || activeSection === 'rd'|| activeSection === 'view')" 
+  [ngClass]="{
+    'section-overview': activeSection === 'overview',
+    'section-accounts': activeSection === 'accounts',
+    'section-transactions': activeSection === 'transactions',
+    'section-transfer': activeSection === 'transfer',
+    'section-fd': activeSection === 'fd',
+    'section-rd': activeSection === 'rd',
+    'section-view': activeSection === 'view'
+  }">
+  <!-- Sidebar -->
+  <div class="sidebar-wrapper" [class.collapsed]="isSidebarCollapsed">
+    <app-sidebar [activeSection]="activeSection" (collapseChanged)="onSidebarCollapseChanged($event)"
+      (sectionChanged)="setActiveSection($event)"  [isSidebarVisibleOnMobile]="isSidebarVisibleOnMobile"></app-sidebar>
+  </div>
+<div 
+  class="overlay" 
+  *ngIf="isSidebarVisibleOnMobile" 
+  (click)="onToggleSidebar()">
+</div>
+
+  <!-- Main Content Area -->
+  <!-- <div class="main-content" [ngClass]="{'expanded': isSidebarCollapsed && (activeSection === 'deposits' || activeSection === 'rd' || activeSection === 'view')}"> -->
+  <div class="main-content"
+    [ngClass]="{'expanded': isSidebarCollapsed && ['fd', 'rd','view'].includes(activeSection)}">
+
+    <app-topbar (toggleSidebar)="onToggleSidebar()"></app-topbar>
+
+    <!-- Breadcrumb Navigation -->
+    <!-- <p-breadcrumb [model]="breadcrumbItems">
+      <ng-template pTemplate="item" let-item let-i="index">
+        <a
+          [ngClass]="{ 'active-breadcrumb': item.section === activeSection }"
+          (click)="item.command && item.command()"
+        >
+          {{ item.label }}
+        </a>
+      </ng-template>
+    </p-breadcrumb> -->
+
+    <p-breadcrumb [model]="breadcrumbItems"
+      [home]="activeSection !== 'overview' ? { icon: 'pi pi-home', routerLink: '/dashboard/overview' } : { label: '' }"
+      class="mb-3" [ngClass]="{ 'hide-separator': activeSection === 'overview' }">
+      <ng-template pTemplate="item" let-item>
+        <a [ngClass]="{ 'active-breadcrumb': item.section === activeSection }" (click)="item.command && item.command()">
+          {{ item.label }}
+        </a>
+      </ng-template>
+    </p-breadcrumb>
+
+
+
+    <!-- Section Content -->
+    <div *ngIf="activeSection === 'overview'">
+      <app-overview></app-overview>
+    </div>
+    <div *ngIf="activeSection === 'accounts'">
+      <app-accounts></app-accounts>
+    </div>
+    <div *ngIf="activeSection === 'transactions'">
+      <app-transactions></app-transactions>
+    </div>
+    <div *ngIf="activeSection === 'transfer'">
+      <app-report></app-report>
+    </div>
+    <div *ngIf="activeSection === 'fd'">
+      <app-fd></app-fd>
+    </div>
+    <div *ngIf="activeSection === 'rd'">
+      <app-rd></app-rd>
+    </div>
+    <div *ngIf="activeSection === 'view'">
+      <app-view></app-view>
+    </div>
+  </div>
+</div>

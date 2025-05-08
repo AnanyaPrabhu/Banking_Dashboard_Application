@@ -1,0 +1,49 @@
+<div class="hamburger" (click)="onHamburgerClick()">
+  <i class="pi pi-bars"></i>
+</div>
+
+
+<div class="topbar">
+  
+  <div class="left">
+
+    
+    <p class="name">Riya Sharma</p>
+    <p class="welcome">Last logged in: {{ currentDate | date: 'MMMM d, y - h:mm a' }}</p>
+
+  </div>
+
+  <div class="right">
+    <div class="search-container" >
+      <input type="text" placeholder="Search here..." />
+      <i class="pi pi-search search-icon"></i>
+    </div>
+
+    <button class="icon-btn">
+      <i class="pi pi-bell"></i>
+    </button>
+
+    <div class="profile-dropdown" (click)="toggleDropdown()" #dropdownToggle>
+      <img src="assets/profile.png" alt="Profile" class="profile-img" />
+
+      <div class="dropdown-menu" *ngIf="dropdownOpen" #dropdownMenu>
+        <div class="dropdown-user-info">
+          <img src="assets/profile.png" alt="Profile" class="dropdown-profile-img" />
+          <div class="dropdown-user-name">Riya Sharma</div>
+          <div class="dropdown-user-email">riyasharma&#64;gmail.com</div>
+        </div>
+
+        <hr />
+        <a class="dropdown-item">
+          <i class="pi pi-user-edit"></i> Edit Profile
+        </a>
+        <a class="dropdown-item">
+          <i class="pi pi-lock"></i> Change Password
+        </a>
+        <a class="dropdown-item" (click)="logout()">
+          <i class="pi pi-sign-out"></i> Logout
+        </a>
+      </div>
+    </div>
+
+  </div>

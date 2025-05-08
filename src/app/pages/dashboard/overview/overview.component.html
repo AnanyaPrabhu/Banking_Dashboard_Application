@@ -1,0 +1,86 @@
+<div class="grid">
+  <!-- Column 1: Card 1 -->
+  <div class="col-12 md:col-4 lg:col-4">
+    <div class="overview-card card1">
+      <h3>Primary Account</h3>
+      <div class="box">
+        <span class="bank-name">Hepto Studio</span>
+        <p class="prem-acc">PREMIUM ACCOUNT</p>
+        <h2>₹56089.50</h2>
+        <div class="card-info">
+          <p class="p2">Riya Sharma</p>
+          <p class="p3">12/28</p>
+          <p class="p1">4720 **** **** 6782</p>
+          <span class="visa-logo">VISA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Column 2: Card 2 -->
+  <div class="col-12 md:col-4 lg:col-4">
+    <div class="overview-card card2">
+      <h3>Total Deposits</h3>
+      <p class="save"><b>₹ {{ totalInvestment | number }}</b></p>
+     <p-chart #myChart type="doughnut" [data]="savingsChartData" [options]="chartOptions"></p-chart>
+
+      <div class="card-value">
+        <h2>{{ highestPercentage }}%</h2>
+        <span>{{ highestLabel }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Column 3: Nested Card 3 & Card 4 -->
+  <div class="col-12 md:col-12 lg:col-4">
+    <div class="grid">
+      <!-- Nested Row 1: Card 3 -->
+      <div class="col-12">
+        <div class="overview-card card3">
+          <h3>Income</h3>
+          <p class="c3">₹29,682</p>
+          <span class="positive">+2.5%</span>
+          <p class="c31">Compared to ₹20,900 last year</p>
+        </div>
+      </div>
+
+      <!-- Nested Row 2: Card 4 -->
+      <div class="col-12">
+        <div class="overview-card card4">
+          <h3>Expenses</h3>
+          <p class="c32">₹27,632</p>
+          <span class="negative">-2.3%</span>
+          <p class="c31">Compared to ₹23,940 last year</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="scroll-grid"> -->
+  <p-carousel 
+  [value]="cards" 
+  [numVisible]="3" 
+  [numScroll]="1"
+  [circular]="true" 
+  [autoplayInterval]="5000" 
+  [responsiveOptions]="responsiveOptions">
+  
+  <ng-template pTemplate="item" let-card>
+    <div class="card-slide">
+      <div class="card-content">
+        <h3>{{ card.title }}</h3>
+        <div *ngFor="let item of card.items; let i = index" class="card-item" [ngClass]="'item-' + i">
+          <i class="{{ item.icon }}"></i>
+          <div>
+            <strong>{{ item.heading }}</strong>
+            <p>{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>
+
+<!-- </div> -->

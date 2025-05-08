@@ -1,0 +1,173 @@
+<!-- <div class="sidebar">
+  <div class="logo">
+  <img src="assets/bank.png" alt="bank logo">
+  </div>
+  <h3>SDCC Bank</h3>
+  <ul>
+    <li [ngClass]="{ 'active-route': activeSection === 'overview' }" (click)="changeSection('overview')">
+      <a><i class="pi pi-th-large mr-2"></i> Overview</a>
+    </li>
+    <li [ngClass]="{ 'active-route': activeSection === 'accounts' }" (click)="changeSection('accounts')">
+      <a><i class="pi pi-user mr-2"></i> Accounts</a>
+    </li>
+    <li [ngClass]="{ 'active-route': activeSection === 'transactions' }" (click)="changeSection('transactions')">
+      <a><i class="pi pi-sort-alt mr-2"></i> Transactions</a>
+    </li>
+    <li [ngClass]="{ 'active-route': activeSection === 'transfer' }" (click)="changeSection('transfer')">
+      <a><i class="pi pi-send mr-2"></i> Transfer</a>
+    </li>
+    <li [ngClass]="{ 'active-route': activeSection === 'deposits' }" (click)="changeSection('deposits')">
+      <a><i class="pi pi-wallet mr-2"></i> Fixed Deposit</a>
+    </li>
+  </ul>
+  
+  
+  </div> -->
+
+
+
+
+<!-- 
+<div class="hamburger mobile-tablet-only" (click)="onHamburgerClick()">
+  <i class="pi pi-bars"></i>
+</div>
+
+
+
+<div class="sidebar desktop-only"> -->
+  <!-- <div class="sidebar" [ngClass]="{ 'collapsed': isCollapsed }">
+    <div class="logo">
+      <img src="assets/bankLogo.png" alt="bank logo">
+    </div>
+    <h3 *ngIf="!isCollapsed">Bank</h3>
+    <ul>
+      <li [ngClass]="{ 'active-route': activeSection === 'overview' }" (click)="changeSection('overview')">
+        <a><i class="pi pi-th-large mr-2"></i> <span *ngIf="!isCollapsed">Overview</span></a>
+      </li>
+      <li [ngClass]="{ 'active-route': activeSection === 'accounts' }" (click)="changeSection('accounts')">
+        <a><i class="pi pi-user mr-2"></i> <span *ngIf="!isCollapsed">Accounts</span></a>
+      </li>
+      <li [ngClass]="{ 'active-route': activeSection === 'transactions' }" (click)="changeSection('transactions')">
+        <a><i class="pi pi-sort-alt mr-2"></i> <span *ngIf="!isCollapsed">Transactions</span></a>
+      </li>
+      <li [ngClass]="{ 'active-route': activeSection === 'transfer' }" (click)="changeSection('transfer')">
+        <a><i class="pi pi-send mr-2"></i> <span *ngIf="!isCollapsed">Transfer</span></a>
+      </li>
+      <li [ngClass]="{ 'active-route': activeSection === 'deposits' }" (click)="changeSection('deposits')">
+        <a><i class="pi pi-wallet mr-2"></i> <span *ngIf="!isCollapsed">Fixed Deposit</span></a>
+      </li>
+      <li [ngClass]="{ 'active-route': activeSection === 'rd' }" (click)="changeSection('rd')">
+        <a><i class="pi pi-refresh text-info mr-2"></i> <span *ngIf="!isCollapsed">Recurring Deposit</span></a>
+      </li>
+
+
+ 
+
+
+      <li [ngClass]="{ 'active-route': activeSection === 'view' }" (click)="changeSection('view')">
+        <a><i class="pi pi-eye mr-2"></i> <span *ngIf="!isCollapsed">View Deposits</span></a>
+      </li>
+    </ul>
+  </div> -->
+<!-- </div> -->
+
+
+
+
+
+
+
+<!-- Hamburger Icon (Visible only on small screens) -->
+<!-- <div class="hamburger" (click)="toggleSidebar()">
+  <i class="pi pi-bars"></i>
+</div> -->
+
+<div class="sidebar"
+[class.collapsed]="isCollapsed "
+[class.mobile-visible]="isSidebarVisibleOnMobile"
+[ngClass]="{'collapsed': isCollapsed,
+  'sidebar-mobile-visible': isSidebarVisibleOnMobile
+}">
+  <div class="logo">
+    <img src="assets/bankLogo.png" alt="bank logo">
+  </div>                                                                    
+  
+  <h3 *ngIf="!isCollapsed">Bank</h3>
+  
+  <ul>
+    <li [ngClass]="{ 'active-route': activeSection === 'overview' }" (click)="changeSection('overview')">
+      <a><i class="pi pi-th-large mr-2"></i> <span *ngIf="!isCollapsed">Overview</span></a>
+    </li>
+    <li [ngClass]="{ 'active-route': activeSection === 'accounts' }" (click)="changeSection('accounts')">
+      <a><i class="pi pi-user mr-2"></i> <span *ngIf="!isCollapsed">Accounts</span></a>
+    </li>
+    <li [ngClass]="{ 'active-route': activeSection === 'transactions' }" (click)="changeSection('transactions')">
+      <a><i class="pi pi-sort-alt mr-2"></i> <span *ngIf="!isCollapsed">Transactions</span></a>
+    </li>
+    <li [ngClass]="{ 'active-route': activeSection === 'transfer' }" (click)="changeSection('transfer')">
+      <a><i class="pi pi-send mr-2"></i> <span *ngIf="!isCollapsed">Transfer</span></a>
+    </li>
+
+    <!-- Deposits section with hover behavior -->
+    <li [ngClass]="{ 'active-route': activeSection === 'fd' || activeSection === 'rd' }" (click)="toggleDeposits(); onDepositsClick()" (mouseenter)="!isCollapsed && toggleDeposits(); isCollapsed && onDepositsClick()">
+      <a>
+        <i class="pi pi-wallet mr-2"></i> <span *ngIf="!isCollapsed">Deposits</span>
+        <i *ngIf="!isCollapsed" class="pi" [ngClass]="{ 'pi-chevron-down': !showDeposits, 'pi-chevron-up': showDeposits }"></i>
+      </a>
+      <ul class="menu" *ngIf="!isCollapsed && showDeposits">
+        <li (click)="changeSection('fd')" [ngClass]="{ 'active-route': activeSection === 'fd' }">
+          <a><i class="pi pi-circle mr-2 text-sm"></i>Fixed Deposit</a>
+        </li>
+        <li (click)="changeSection('rd')" [ngClass]="{ 'active-route': activeSection === 'rd' }">
+          <a><i class="pi pi-circle mr-2 text-sm"></i>Recurring Deposit</a>
+        </li>
+      </ul>
+    </li>
+
+    <li [ngClass]="{ 'active-route': activeSection === 'view' }" (click)="changeSection('view')">
+      <a><i class="pi pi-eye mr-2"></i> <span *ngIf="!isCollapsed">View Deposits</span></a>
+    </li>
+  </ul>
+</div>
+
+<div class="right-panel" *ngIf="showRightPanel" [ngClass]="{ 'active': showRightPanel }">
+  <div class="submenu">
+    <ul>
+      <li [class.active-route]="activeRoute === 'fd'" (click)="changeSection('fd')"><i class="pi pi-chevron-right"></i> Fixed Deposit</li>
+      <li [class.active-route]="activeRoute === 'rd'" (click)="changeSection('rd')"><i class="pi pi-chevron-right"></i> Recurring Deposit</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- <div class="sidebar mobile-sidebar open" *ngIf="isOpen"> -->
+  <!-- <div class="sidebar" [ngClass]="{ 'collapsed': isCollapsed }">
+    <div class="logo">
+      <img src="assets/bankLogo.png" alt="bank logo">
+    </div>
+    <h3 *ngIf="!isCollapsed">Bank</h3>
+    <ul>
+      <li [ngClass]="{ 'active-route': activeSection === 'overview' }" (click)="changeSection('overview')">
+        <a><i class="pi pi-th-large mr-2"></i> <span *ngIf="!isCollapsed">Overview</span></a>
+      </li>
+      <li [ngClass]="{ 'active-route': activeSection === 'accounts' }" (click)="changeSection('accounts')">
+        <a><i class="pi pi-user mr-2"></i> <span *ngIf="!isCollapsed">Accounts</span></a>
+      </li>
+      <li [ngClass]="{ 'active-route': activeSection === 'transactions' }" (click)="changeSection('transactions')">
+        <a><i class="pi pi-sort-alt mr-2"></i> <span *ngIf="!isCollapsed">Transactions</span></a>
+      </li>
+      <li [ngClass]="{ 'active-route': activeSection === 'transfer' }" (click)="changeSection('transfer')">
+        <a><i class="pi pi-send mr-2"></i> <span *ngIf="!isCollapsed">Transfer</span></a>
+      </li>
+      <li [ngClass]="{ 'active-route': activeSection === 'deposits' }" (click)="changeSection('deposits')">
+        <a><i class="pi pi-wallet mr-2"></i> <span *ngIf="!isCollapsed">Fixed Deposit</span></a>
+      </li>
+      <li [ngClass]="{ 'active-route': activeSection === 'rd' }" (click)="changeSection('rd')">
+        <a><i class="pi pi-refresh text-info mr-2"></i> <span *ngIf="!isCollapsed">Recurring Deposit</span></a>
+      </li>
+      <li [ngClass]="{ 'active-route': activeSection === 'view' }" (click)="changeSection('view')">
+        <a><i class="pi pi-eye mr-2"></i> <span *ngIf="!isCollapsed">View Deposits</span></a>
+      </li>
+    </ul>
+  </div>
+</div> -->

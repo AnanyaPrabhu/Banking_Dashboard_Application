@@ -1,0 +1,81 @@
+<!-- <div class="p-col-12 p-md-5 p-lg-4 form-container mt-8 ">
+    <br>
+    <h1>Login here!!</h1>
+    <form [formGroup]="loginForm">
+
+        <div class=" text-base text-color surface-overlay 
+                border-round appearance-none outline-none focus:border-primary  container1 w-6">
+            <label>
+                <h3>Username</h3>
+            </label>
+            <input type="text" formControlName="username" placeholder="Enter your name" class="p-inputtext p-d-block border-round-md" />
+        </div>
+        <div *ngIf="isUsernameRequired" class="p-error">Username is required.</div>
+        <div *ngIf="isUsernameInvalid" class="p-error">Username must be alphanumeric.</div>
+        <div class=" text-base text-color surface-overlay p-1 
+    border-round appearance-none outline-none focus:border-primary container2 w-6">
+            <label>
+                <h3>Password</h3>
+            </label>
+            <input type="password" formControlName="password" placeholder="Enter your password"
+                class="p-inputtext p-d-block border-round-md" />
+        </div>
+        <div *ngIf="isPasswordRequired" class="p-error">Password is required.</div>
+        <div *ngIf="isPasswordInvalid" class="p-error">Password must be alphanumeric.</div>
+        <button type="button" [disabled]="loginForm.invalid" (click)="login()" class=" p-d-block p-mt-3    ">
+            <b>Login</b>
+        </button>
+    </form>
+    <img src="assets/images.jpg" alt="Logo" class="logo p-d-block p-m-auto w-5  -mr-2" />
+
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+<div class="p-col-12 p-md-5 p-lg-4 form-container mt-8">
+    <h1>Login Now!!</h1>
+
+    <form [formGroup]="loginForm">
+        <div class="p-field container1 ">
+            <label>
+                <h3>Username</h3>
+            </label>
+            <input id="username" type="text" pInputText formControlName="username" placeholder="Enter your name"
+                class="w-100" autocomplete="off" /><br>
+            <p-message styleClass="custom-msg" *ngIf="isUsernameRequired" severity="error"
+                text="Username is required."></p-message>
+            <p-message styleClass="custom-msg2" *ngIf="isUsernameInvalid" severity="error"
+                text="Username must be alphanumeric."></p-message>
+        </div>
+
+
+        <div class="p-field w-6">
+            <label>
+                <h3>Password</h3>
+            </label>
+            <p-password id="password" formControlName="password" [toggleMask]="true" placeholder="Enter your password"
+                class="custom-password"></p-password>
+            <p-message styleClass="custom-msg1" *ngIf="isPasswordRequired" severity="error"
+                text="Password is required."></p-message>
+            <p-message styleClass="custom-msg1" *ngIf="isPasswordInvalid" severity="error"
+                text="Password must be alphanumeric."></p-message>
+        </div>
+
+
+        <button type="button" pButton label="Login" [disabled]="loginForm.invalid" (click)="login()"
+            class="w-100 mt-4"></button>
+    </form>
+
+
+
+    <img src="assets/images.jpg" alt="Logo" class="logo p-d-block p-m-auto w-5 -mr-2 " />
+
+</div>
