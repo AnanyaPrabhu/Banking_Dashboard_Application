@@ -27,6 +27,7 @@
             "outputPath": "dist/my-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
+                 "baseHref": "/Banking_Dashboard_Application/",
             "polyfills": [
               "zone.js"
             ],

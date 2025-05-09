@@ -301,6 +301,9 @@ label[for=otp]{
     width: 10px; 
     text-align: left; 
   }
+  ::ng-deep .p-dialog .p-dialog-content{
+    padding-top:5px;
+  }
 
 
 
@@ -341,6 +344,9 @@ label[for=otp]{
         font-size: 14px;
         width:7rem;
     }
+    ::ng-deep .fd-auth-dialog{
+        width: 21rem !important;
+     }
    
   }
 
@@ -404,6 +410,10 @@ label[for=close]{
 .right-rounded{
     width:9.6rem !important;
 }
+::ng-deep .fd-auth-dialog{
+    width: 22rem !important;
+ }
+
   }
 
 @media(max-width:426px){
@@ -451,10 +461,10 @@ label[for=close]{
 ::ng-deep .p-dropdown{
     width:20rem;
 }
-::ng-deep .fd-receipt-dialog{
-    width:21rem !important;
-    font-size:13px !important;
- }
+// ::ng-deep .fd-receipt-dialog{
+//     width:21rem !important;
+//     font-size:13px !important;
+//  }
 
 }
 @media(max-width:376px) and (min-width:322px){

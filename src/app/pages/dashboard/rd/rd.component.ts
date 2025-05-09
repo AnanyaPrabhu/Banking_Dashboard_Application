@@ -114,33 +114,34 @@
 
 
 
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { DepositApiService } from '../../../services/deposit-api.service';
-// import { AllDepositsService } from '../../../services/all-deposits.service';
 
 @Component({
   selector: 'app-rd',
   templateUrl: './rd.component.html',
   styleUrls: ['./rd.component.scss'],
-  providers: [MessageService] // Provide the MessageService
+  providers: [MessageService]
 })
 export class RDComponent implements OnInit {
   @ViewChild('authForm') authForm!: NgForm;
-  receiptDialog = false;
-  rdReceiptData: any = null;
-  addNominee = false;
-  selectedBalance: string | null = null;
+
   rdForm!: FormGroup;
   today = new Date();
 
   showDialog = false;
+  receiptDialog = false;
+  addNominee = false;
+
   enteredPassword = '';
   enteredOTP = '';
 
-  allrdRecords: any[] = []; // Store all rd JSON records here
+  selectedBalance: string | null = null;
+  rdReceiptData: any = null;
+
+  allrdRecords: any[] = [];
 
   accountOptions = [
     { label: '809543234457', value: '809543234457' },
@@ -154,8 +155,11 @@ export class RDComponent implements OnInit {
     '875978658955': '₹ 5,09,340.00'
   };
 
-
-  constructor(private fb: FormBuilder, private messageService: MessageService, private depositApiService: DepositApiService) { }
+  constructor(
+    private fb: FormBuilder,
+    private messageService: MessageService,
+    private depositApiService: DepositApiService
+  ) {}
 
   ngOnInit(): void {
     this.rdForm = this.fb.group({
@@ -165,12 +169,25 @@ export class RDComponent implements OnInit {
       maturity: [null, Validators.required]
     });
 
-    this.rdForm.get('fromAccount')?.valueChanges.subscribe((selectedAccount) => {
+    this.rdForm.get('fromAccount')?.valueChanges.subscribe((selectedAccount: string) => {
       this.selectedBalance = selectedAccount ? this.accountBalances[selectedAccount] : null;
     });
+
+    // Load RD records from combinedDeposits
+    const savedData = localStorage.getItem('combinedDeposits');
+    if (savedData) {
+      try {
+        const parsed = JSON.parse(savedData);
+        this.allrdRecords = Array.isArray(parsed)
+          ? parsed.filter(entry => entry.type === 'RD')
+          : [];
+      } catch {
+        this.allrdRecords = [];
+      }
+    }
   }
 
-  submitRDForm() {
+  submitRDForm(): void {
     if (this.rdForm.valid) {
       this.showDialog = true;
     } else {
@@ -178,7 +195,7 @@ export class RDComponent implements OnInit {
     }
   }
 
-  verifyCredentials(authForm: NgForm) {
+  verifyCredentials(authForm: NgForm): void {
     const correctPassword = 'admin123';
     const correctOTP = '0909';
 
@@ -194,8 +211,6 @@ export class RDComponent implements OnInit {
     }
 
     const rdData = this.rdForm.value;
-
-    // Generate unique RD reference
     const refNumber = 'RD' + Math.floor(Math.random() * 1e14).toString().padStart(14, '0');
 
     const rdJson = {
@@ -204,32 +219,36 @@ export class RDComponent implements OnInit {
       timestamp: new Date().toISOString(),
       details: rdData
     };
-    // console.log('RD Form Value:', this.rdForm.value);
 
+    let combinedArray: any[] = [];
+    try {
+      const existingData = localStorage.getItem('combinedDeposits');
+      combinedArray = existingData ? JSON.parse(existingData) : [];
+      if (!Array.isArray(combinedArray)) {
+        combinedArray = [];
+      }
+    } catch (error) {
+      console.error('Failed to parse combinedDeposits from localStorage', error);
+      combinedArray = [];
+    }
 
-    // Save the deposit to the backend
-    this.depositApiService.saveDeposit(rdJson).subscribe(() => {
-      console.log('RD Saved to JSON');
+    combinedArray.push(rdJson);
+    localStorage.setItem('combinedDeposits', JSON.stringify(combinedArray));
 
-      // Store receipt data including reference number
-      this.rdReceiptData = {
-        ...this.rdForm.value,
-        referenceNumber: refNumber
-      };
-      // console.log('RD Receipt Data:', this.rdReceiptData); // Debug
-      this.receiptDialog = true;
+    this.rdReceiptData = {
+      ...rdData,
+      referenceNumber: refNumber
+    };
+    this.receiptDialog = true;
 
-    });
-    // Reset the form and authentication fields
+    this.allrdRecords = combinedArray.filter(item => item.type === 'RD');
+
     this.enteredPassword = '';
     this.enteredOTP = '';
     this.showDialog = false;
-    this.receiptDialog = true;
-
   }
 
-
-  onReceiptDialogHide() {
+  onReceiptDialogHide(): void {
     this.rdReceiptData = null;
     this.rdForm.reset();
     this.selectedBalance = null;
@@ -242,9 +261,10 @@ export class RDComponent implements OnInit {
     this.enteredOTP = '';
   }
 
-  preventDotAndMinus(event: KeyboardEvent) {
+  preventDotAndMinus(event: KeyboardEvent): void {
     if (event.key === '.' || event.key === '-') {
       event.preventDefault();
     }
   }
 }
+

@@ -144,42 +144,42 @@
           <div class="receipt-details">
             <div class="receipt-row">
               <strong class="label">Reference Number</strong><span class="colon">:</span>
-              <span class="value">{{ fdReceiptData.referenceNumber }}</span>
+              <span class="value">{{ fdReceiptData?.referenceNumber }}</span>
             </div>
   
            
               <div class="receipt-row">
                 <strong class="label">From Account</strong><span class="colon">:</span>
-                <span class="value">{{ fdReceiptData.fromAccount }}</span>
+                <span class="value">{{ fdReceiptData?.fromAccount }}</span>
               </div>
   
               <div class="receipt-row">
                 <strong class="label">Scheme</strong><span class="colon">:</span>
-                <span class="value">{{ fdReceiptData.scheme }}</span>
+                <span class="value">{{ fdReceiptData?.scheme }}</span>
               </div>
   
               <div class="receipt-row">
                 <strong class="label">Investment Amount</strong><span class="colon">:</span>
-                <span class="value">₹{{ fdReceiptData.amount }}</span>
+                <span class="value">₹{{ fdReceiptData?.amount }}</span>
               </div>
   
               <div class="receipt-row">
                 <strong class="label">Tenure</strong><span class="colon">:</span>
                 <span class="value">
-                  {{ fdReceiptData.tenureMonths }} {{ fdReceiptData.tenureMonths === 1 ? 'month' : 'months' }},
-                  {{ fdReceiptData.tenureDays }} {{ fdReceiptData.tenureDays === 1 ? 'day' : 'days' }}
+                  {{ fdReceiptData?.tenureMonths }} {{ fdReceiptData?.tenureMonths === 1 ? 'month' : 'months' }},
+                  {{ fdReceiptData?.tenureDays }} {{ fdReceiptData?.tenureDays === 1 ? 'day' : 'days' }}
                 </span>
               </div>
   
               <div class="receipt-row">
                 <strong class="label">Frequency</strong><span class="colon">:</span>
-                <span class="value">{{ fdReceiptData.frequency }}</span>
+                <span class="value">{{ fdReceiptData?.frequency }}</span>
               </div>
               
               <div class="receipt-row">
                 <strong class="label">Maturity Instruction</strong><span class="colon">:</span>
                 <span class="value">
-                  {{ fdReceiptData.maturity === 'renew' ? 'Renew the Deposit' : 'Close the Account on Maturity' }}
+                  {{ fdReceiptData?.maturity === 'renew' ? 'Renew the Deposit' : 'Close the Account on Maturity' }}
                 </span>
               </div>
             </div>

@@ -6,11 +6,7 @@
         <p class="rd-date">Deposit Opening Date: {{ today | date: 'dd-MM-yyyy' }}</p>
       </div>
 
-      <!-- Add Nominee Toggle -->
-      <!-- <div class="add-nominee-toggle">
-          <span class="toggle-label">Add Nominee</span>
-          <p-inputSwitch [(ngModel)]="addNominee"></p-inputSwitch>
-        </div> -->
+      
     </div>
 
     <form [formGroup]="rdForm" (ngSubmit)="submitRDForm()">

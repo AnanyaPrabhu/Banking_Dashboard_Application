@@ -227,38 +227,5 @@
       "tenureMonths": 1,
       "maturity": "renew"
     }
-  },
-  {
-    "type": "RD",
-    "referenceNumber": "RD04804480161841",
-    "timestamp": "2025-05-07T12:09:47.551Z",
-    "details": {
-      "fromAccount": "809543234457",
-      "amount": 100,
-      "tenureMonths": 2,
-      "maturity": "renew"
-    }
-  },
-  {
-    "type": "RD",
-    "referenceNumber": "RD81592285359595",
-    "timestamp": "2025-05-07T12:29:40.516Z",
-    "details": {
-      "fromAccount": "809543234457",
-      "amount": 100,
-      "tenureMonths": 2,
-      "maturity": "close"
-    }
-  },
-  {
-    "type": "RD",
-    "referenceNumber": "RD07762996151401",
-    "timestamp": "2025-05-07T12:30:06.213Z",
-    "details": {
-      "fromAccount": "809543234457",
-      "amount": 100,
-      "tenureMonths": 2,
-      "maturity": "renew"
-    }
   }
 ]
